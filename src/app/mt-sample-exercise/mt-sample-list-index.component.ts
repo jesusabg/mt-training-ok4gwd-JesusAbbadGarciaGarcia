@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { DataService } from './data.service';
 import { Farm } from './farm';
-import { DataService } from './selected-farm.service';
 
 @Component({
   selector: 'mt-sample-list',

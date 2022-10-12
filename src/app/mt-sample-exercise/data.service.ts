@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
-export class selectedFamService {
+export class DataService {
   constructor(private http: HttpClient) {}
   private _baseURI = 'assets/mock-data.json';
 
