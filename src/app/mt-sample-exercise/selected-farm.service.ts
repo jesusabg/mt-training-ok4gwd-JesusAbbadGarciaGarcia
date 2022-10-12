@@ -14,6 +14,6 @@ export class SelectedFarmService {
 
   getAllTasksError(event) {
     const path = this._baseURI;
-    return this.http.get<[]>(event, path).toPromise();
+    return this.http.get<[]>(event, path);
   }
 }

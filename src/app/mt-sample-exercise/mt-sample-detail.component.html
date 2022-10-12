@@ -1,1 +1,17 @@
-<h5 >Farm Selected</h5>
+<h5>Farm Selected</h5>
+<table class="table" *ngIf="flagDetails">
+  <thead>
+    <tr>
+      <th scope="col">Farm No</th>
+      <th scope="col">Farm Name</th>
+      <th scope="col">Active Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let farm of farmsData">
+      <th scope="col">{{ farm.FarmNo }}</th>
+      <th scope="col">{{ farm.FarmName }}</th>
+      <th scope="col">{{ farm.ActiveDate }}</th>
+    </tr>
+  </tbody>
+</table>

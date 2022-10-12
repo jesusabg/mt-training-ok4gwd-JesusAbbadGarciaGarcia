@@ -4,7 +4,6 @@ import { takeUntil } from 'rxjs/operators';
 import { DataService } from './data.service';
 import { Farm } from './farm';
 import { SelectedFarmService } from './selected-farm.service';
-
 @Component({
   selector: 'mt-sample-list',
   templateUrl: './mt-sample-list-index.component.html',
@@ -33,9 +32,8 @@ export class MtSampleListIndexComponent {
   ];
 
   selectedValue() {
-    this.selectedData = this.optionSelect;
-    console.log(this.optionSelect);
     this.getFarms();
+    this.selectedData = this.optionSelect;
   }
 
   async getFarms() {
@@ -43,14 +41,16 @@ export class MtSampleListIndexComponent {
     this.farmsData = response;
   }
 
-  async getFarmsError(event) {
-    try {
-      const response = await this._selected.getAllTasksError(event);
-      response;
-    } catch (error) {
-      console.log('Error al traer la lista');
-      alert('Ocurrio una excepcion al traer la lista de granjas');
-    }
+  getFarmsError(event) {
+    this._selected.getAllTasksError(event).subscribe({
+      next: (response) => {
+        console.log(response);
+      },
+      error: (error) => {
+        console.log(error);
+        alert('Ocurrion una excepcion al traer las listas');
+      },
+    });
   }
   setIndex(ii) {
     this.aa = ii;
